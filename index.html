@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Õpikuriiul</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#0f1012">
+<style>
+html,body{margin:0;height:100%;background:#0f1012;color:#ededea;font-family:system-ui,sans-serif}
+.c{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+img{width:96px;height:96px;border-radius:24px;animation:p 1.6s ease-in-out infinite}
+@keyframes p{50%{transform:scale(1.05)}}
+a{color:#e7d48f;font-size:15px}
+p{margin:0;color:#8d8f93;font-size:14px}
+</style>
+</head>
+<body>
+<div class="c">
+  <img src="icon-192.png" alt="">
+  <p>Avan riiulit…</p>
+  <a id="go" href="https://claude.ai/artifact/AkFnLKhxZXVUaJvUnjAY6C">Ava Õpikuriiul</a>
+</div>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+var standalone=matchMedia('(display-mode: standalone)').matches;
+if(standalone){setTimeout(function(){location.href=document.getElementById('go').href},500)}
+else{document.querySelector('p').textContent='Paigalda: ⋮ → Installi rakendus'}
+</script>
+</body>
+</html>
